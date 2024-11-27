@@ -3,6 +3,7 @@ pragma solidity ^0.8.0;
 
 contract Bank {
 
+
     mapping(address => uint ) public balance;
 
     event topUpEvent(address indexed user, uint amount);
@@ -14,6 +15,7 @@ contract Bank {
         emit withDrawEvent(msg.sender, msg.value);
 
     }
+
 
     function withdraw(uint _Amount) public {
         
