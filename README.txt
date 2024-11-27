@@ -1,4 +1,4 @@
-# Bank Smart Contract
+Bank Smart Contract
 
 Bank adalah *smart contract* sederhana berbasis Ethereum yang memungkinkan pengguna untuk:
 1. Menyetor Ether ke kontrak.
@@ -7,14 +7,14 @@ Bank adalah *smart contract* sederhana berbasis Ethereum yang memungkinkan pengg
 
 ---
 
-## Fitur
-### 1. Deposit Ether
+Fitur
+1. Deposit Ether
 - Fungsi: `topUp()`
 - Pengguna dapat menyetor Ether ke dalam kontrak.
 - Saldo pengguna akan bertambah sesuai jumlah Ether yang disetor.
 - **Event**: Setiap transaksi deposit akan dicatat dengan event `Deposit`.
 
-### 2. Withdraw Ether
+2. Withdraw Ether
 - Fungsi: `tarikDana(uint _tarik)`
 - Pengguna dapat menarik Ether dari kontrak.
 - Saldo pengguna akan berkurang sesuai jumlah Ether yang ditarik.
@@ -23,7 +23,7 @@ Bank adalah *smart contract* sederhana berbasis Ethereum yang memungkinkan pengg
 
 ---
 
-## Cara Menggunakan
+Cara Menggunakan
 1. **Deploy Kontrak**
    - Gunakan *Remix IDE* atau *Hardhat* untuk mendepoy kontrak ke jaringan Ethereum.
 
@@ -37,16 +37,15 @@ Bank adalah *smart contract* sederhana berbasis Ethereum yang memungkinkan pengg
 4. **Withdraw Ether**
    - Panggil fungsi `tarikDana(uint _tarik)` dengan jumlah yang ingin Anda tarik (dalam Ether).
 
----
-
-## Validasi
+Validasi
 - Deposit minimal 1 Wei.
 - Penarikan hanya bisa dilakukan jika saldo mencukupi.
 
 ---
 
-## Contoh Event
-### Deposit
+Contoh Event
+
+Deposit
 ```json
 {
   "event": "Deposit",
