@@ -1,28 +1,57 @@
-REMIX DEFAULT WORKSPACE
+# Bank Smart Contract
 
-Remix default workspace is present when:
-i. Remix loads for the very first time 
-ii. A new workspace is created with 'Default' template
-iii. There are no files existing in the File Explorer
+Bank adalah *smart contract* sederhana berbasis Ethereum yang memungkinkan pengguna untuk:
+1. Menyetor Ether ke kontrak.
+2. Menarik Ether dari kontrak.
+3. Melihat saldo mereka.
 
-This workspace contains 3 directories:
+---
 
-1. 'contracts': Holds three contracts with increasing levels of complexity.
-2. 'scripts': Contains four typescript files to deploy a contract. It is explained below.
-3. 'tests': Contains one Solidity test file for 'Ballot' contract & one JS test file for 'Storage' contract.
+## Fitur
+### 1. Deposit Ether
+- Fungsi: `topUp()`
+- Pengguna dapat menyetor Ether ke dalam kontrak.
+- Saldo pengguna akan bertambah sesuai jumlah Ether yang disetor.
+- **Event**: Setiap transaksi deposit akan dicatat dengan event `Deposit`.
 
-SCRIPTS
+### 2. Withdraw Ether
+- Fungsi: `tarikDana(uint _tarik)`
+- Pengguna dapat menarik Ether dari kontrak.
+- Saldo pengguna akan berkurang sesuai jumlah Ether yang ditarik.
+- Fungsi memastikan saldo pengguna mencukupi sebelum melakukan penarikan.
+- **Event**: Setiap transaksi penarikan akan dicatat dengan event `Withdrawal`.
 
-The 'scripts' folder has four typescript files which help to deploy the 'Storage' contract using 'web3.js' and 'ethers.js' libraries.
+---
 
-For the deployment of any other contract, just update the contract's name from 'Storage' to the desired contract and provide constructor arguments accordingly 
-in the file `deploy_with_ethers.ts` or  `deploy_with_web3.ts`
+## Cara Menggunakan
+1. **Deploy Kontrak**
+   - Gunakan *Remix IDE* atau *Hardhat* untuk mendepoy kontrak ke jaringan Ethereum.
 
-In the 'tests' folder there is a script containing Mocha-Chai unit tests for 'Storage' contract.
+2. **Deposit Ether**
+   - Panggil fungsi `topUp()` dengan mengirimkan Ether.
+   - Gunakan wallet seperti Metamask untuk mengirim Ether ke kontrak.
 
-To run a script, right click on file name in the file explorer and click 'Run'. Remember, Solidity file must already be compiled.
-Output from script will appear in remix terminal.
+3. **Cek Saldo**
+   - Gunakan fungsi `balance` dengan alamat Anda untuk melihat saldo.
 
-Please note, require/import is supported in a limited manner for Remix supported modules.
-For now, modules supported by Remix are ethers, web3, swarmgw, chai, multihashes, remix and hardhat only for hardhat.ethers object/plugin.
-For unsupported modules, an error like this will be thrown: '<module_name> module require is not supported by Remix IDE' will be shown.
+4. **Withdraw Ether**
+   - Panggil fungsi `tarikDana(uint _tarik)` dengan jumlah yang ingin Anda tarik (dalam Ether).
+
+---
+
+## Validasi
+- Deposit minimal 1 Wei.
+- Penarikan hanya bisa dilakukan jika saldo mencukupi.
+
+---
+
+## Contoh Event
+### Deposit
+```json
+{
+  "event": "Deposit",
+  "args": {
+    "user": "0x123...abc",
+    "amount": "1000000000000000000" // 1 Ether dalam Wei
+  }
+}
