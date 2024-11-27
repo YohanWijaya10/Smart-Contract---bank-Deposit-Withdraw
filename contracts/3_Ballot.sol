@@ -16,7 +16,7 @@ contract Bank {
     }
 
     function withdraw(uint _Amount) public {
-        //dasd
+        
         uint toEther = _Amount * 1 ether;
         require(balance[msg.sender] >= toEther, "" );
         balance[msg.sender] -= toEther ;
